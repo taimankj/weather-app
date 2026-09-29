@@ -1,0 +1,130 @@
+:root {
+  box-sizing: border-box;
+  font-size: 32px;
+  --padding-base: 8px;
+  --margin-base: 8px;
+}
+
+body {
+  background: url("./background/11-midnight.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding-top: var(--padding-base);
+}
+
+/* Nav */
+
+nav {
+  flex-grow: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#location-search {
+  flex-grow: 0;
+  display: flex;
+  gap: 8px;
+
+  .zipcode-wrapper {
+    border-left: 1px solid black;
+    padding-left: var(--padding-base);
+    display: flex;
+  }
+
+  #confirm-search {
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+}
+
+input {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: var(--padding-base);
+  font-size: 0.5rem;
+}
+
+/* Main */
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+section {
+  background-color: rgba(238, 238, 238, 0.7);
+  border-radius: 15px;
+  display: grid;
+  grid: 1fr 1fr 1fr 1fr / 2fr 1fr 1fr;
+  grid-template-areas:
+    "city-country city-country time"
+    "temp precipitation precipitation"
+    "temp humidity humidity"
+    "temp wind wind";
+  padding: var(--padding-base);
+
+  #city-country {
+    grid-area: city-country;
+  }
+
+  #time {
+    grid-area: time;
+    font-size: 0.8rem;
+    text-align: end;
+  }
+
+  #temp {
+    grid-area: temp;
+    font-size: 4rem;
+    align-content: center;
+    text-align: center;
+    border-right: 2px solid black;
+  }
+
+  #precipitation {
+    grid-area: precipitation;
+    font-size: 0.8rem;
+  }
+
+  #humidity {
+    grid-area: humidity;
+    font-size: 0.8rem;
+  }
+
+  #wind {
+    grid-area: wind;
+    font-size: 0.8rem;
+  }
+}
+
+section > div {
+  padding: var(--padding-base);
+  align-content: center;
+}
+
+#temp-toggle {
+  display: flex;
+  gap: 8px;
+  padding: var(--padding-base);
+
+  button {
+    font-size: 0.65rem;
+  }
+}
+
+/* Other Styling */
+
+button:hover {
+  cursor: pointer;
+}
