@@ -1,3 +1,5 @@
+import { getLocationWeather } from "./weather-api.js";
+
 const locationForm = document.querySelector("#location-search");
 const city = document.querySelector("#city");
 const country = document.querySelector("#country");
@@ -26,9 +28,7 @@ export function fireFormEvents() {
   locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(locationForm);
-    const formInput = formData.entries();
-    formInput.forEach((data) => {
-      console.log(`${data[0]}: ${data[1]}`);
-    });
+    const { city, country } = Object.fromEntries(formData);
+    getLocationWeather(city, country);
   });
 }
