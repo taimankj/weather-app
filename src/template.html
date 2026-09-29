@@ -8,21 +8,22 @@
   <body>
     <nav>
       <form id="location-search">
-        <input type="search" name="city" id="city" placeholder="City" />
+        <input
+          type="search"
+          name="city"
+          id="city"
+          pattern="[A-Za-z]+(?: [A-Za-z]+)?"
+          placeholder="City"
+          required
+        />
         <input
           type="search"
           name="country"
           id="country"
+          pattern="[A-Za-z]+(?: [A-Za-z]+)?"
           placeholder="Country"
+          required
         />
-        <div class="zipcode-wrapper">
-          <input
-            type="search"
-            name="zipcode"
-            id="zipcode"
-            placeholder="Zipcode"
-          />
-        </div>
         <button id="confirm-search" form="location-search">
           <svg
             xmlns="http://www.w3.org/2000/svg"

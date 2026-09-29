@@ -31,12 +31,6 @@ nav {
   display: flex;
   gap: 8px;
 
-  .zipcode-wrapper {
-    border-left: 1px solid black;
-    padding-left: var(--padding-base);
-    display: flex;
-  }
-
   #confirm-search {
     border: none;
     outline: none;
