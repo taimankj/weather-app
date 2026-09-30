@@ -1,4 +1,5 @@
 import { renderWeather } from "./dom-rendering.js";
+import { storage } from "./local-storage-api.js";
 
 export async function getLocationWeather(city, country) {
   const key = "LVDJ4STUFCLZJ5ZCLMJXTNXUJ";
@@ -11,10 +12,12 @@ export async function getLocationWeather(city, country) {
 
     const location = weatherData.resolvedAddress;
     const time = getTime(weatherData.timezone);
-    const temp = currentWeather.temp;
-    const precipitation = currentWeather.precipprob;
-    const humidity = currentWeather.humidity;
-    const windSpeed = currentWeather.windspeed;
+    const temp = getTemp(weatherData.days[0].temp);
+    const precipitation = getPrecipitation(weatherData.days[0].precip);
+    const humidity = getHumidity(currentWeather.humidity);
+    const windSpeed = getWind(currentWeather.windspeed);
+
+    storage.saveTemp(temp);
 
     renderWeather(location, time, temp, precipitation, humidity, windSpeed);
   } catch (err) {
@@ -28,4 +31,20 @@ function getTime(timezone) {
     hour: "numeric",
     minute: "2-digit",
   }).format(new Date());
+}
+
+function getTemp(temp) {
+  return `${Math.round(Number(temp))}`;
+}
+
+function getHumidity(humidity) {
+  return `${Math.round(Number(humidity))}`;
+}
+
+function getWind(wind) {
+  return `${Math.round(Number(wind))}`;
+}
+
+function getPrecipitation(precip) {
+  return `${Math.round(Number(precip) * 100)}`;
 }

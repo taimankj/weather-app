@@ -1,3 +1,5 @@
+import { resetTempToggle } from "./temp-converter.js";
+
 export function renderWeather(
   location,
   time,
@@ -19,4 +21,6 @@ export function renderWeather(
   precipitationElement.innerText = precipitation;
   humidityElement.innerText = humidity;
   windElement.innerText = windSpeed;
+
+  resetTempToggle();
 }
