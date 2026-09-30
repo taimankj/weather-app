@@ -1,3 +1,4 @@
+import { loadBackground } from "./load-background.js";
 import { resetTempToggle } from "./temp-converter.js";
 
 export function renderWeather(
@@ -21,6 +22,8 @@ export function renderWeather(
   precipitationElement.innerText = precipitation;
   humidityElement.innerText = humidity;
   windElement.innerText = windSpeed;
+
+  loadBackground(time);
 
   resetTempToggle();
 }

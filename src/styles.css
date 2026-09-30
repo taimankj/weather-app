@@ -30,6 +30,9 @@ nav {
   flex-grow: 0;
   display: flex;
   gap: 8px;
+  padding: var(--padding-base);
+  border-radius: 15px;
+  background-color: rgba(238, 238, 238, 0.7);
 
   #confirm-search {
     border: none;
